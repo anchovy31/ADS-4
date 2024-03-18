@@ -1,6 +1,5 @@
 // Copyright 2021 NNTU-CS
-int NumOfLastValue(int arr[], int len, int value)
-{
+int NumOfLastValue(int arr[], int len, int value) {
   for (int i = len - 1; i >= 0; i--) {
     if (arr[i] <= value)
       return i;
@@ -38,9 +37,9 @@ int countPairs2(int* arr, int len, int value) {
   }
   return k;
 }
-int countPairs3(int* arr, int len, int value)
-{
-  int k = 0, count = 0, jbas = NumOfLastValue(arr, len, value), flag = 0, prevk = 0, j = 0;
+int countPairs3(int* arr, int len, int value) {
+  int k = 0, count = 0, jbas = NumOfLastValue(arr, len, value);
+  int flag = 0, prevk = 0, j = 0;
   j = jbas;
   for (int i = 0; arr[i] <= value / 2; i++) {
     while (i < j) {
@@ -55,14 +54,14 @@ int countPairs3(int* arr, int len, int value)
           count++;
           j--;
           if (i >= j) {
-	          i++;
+            i++;
             prevk = k;
             k = 0;
             j = jbas;
           }
         } else if (value - arr[i] < arr[j]) {
           j--;
-				} else {
+        } else {
           i++;
           prevk = k;
           k = 0;
