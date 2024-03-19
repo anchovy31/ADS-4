@@ -53,12 +53,6 @@ int countPairs3(int* arr, int len, int value) {
           k++;
           count++;
           j--;
-          if (i >= j) {
-            i++;
-            prevk = k;
-            k = 0;
-            j = jbas;
-          }
         } else if (value - arr[i] < arr[j]) {
           j--;
         } else {
