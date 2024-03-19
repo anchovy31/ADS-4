@@ -38,32 +38,32 @@ int countPairs2(int* arr, int len, int value) {
   return k;
 }
 int countPairs3(int* arr, int len, int value) {
-  int k = 0, count = 0, jbas = NumOfLastValue(arr, len, value);
-  int flag = 0, prevk = 0, j = 0;
-  j = jbas;
-  for (int i = 0; arr[i] <= value / 2; i++) {
-    while (i < j) {
-      if (flag = 1 && arr[i] == arr[i - 1]) {
-        while (arr[i] == arr[i - 1]) {
-          count += prevk;
-          i++;
+    int k = 0, center, j = 0;
+    int left = 0, right = 0;
+    int minlen = NumOfLastValue(arr, len, value);
+    for (int i = 0; i < minlen - 1; i++) {
+        left = i, right = minlen + 1;
+        while (left < right - 1) {
+            center = (left + right) / 2;
+            if (arr[i] + arr[center] == value) {
+                k++;
+                j = center + 1;
+                while (arr[i] + arr[j] == value && j < right) {
+                    k++;
+                    j++;
+                }
+                j = center - 1;
+                while (arr[i] + arr[j] == value && j > left) {
+                    k++;
+                    j--;
+                }
+                break;
+            } else if (arr[i] + arr[center] > value) {
+                right = center;
+            } else {
+                left = center;
+            }
         }
-      } else {
-        if (arr[i] + arr[j] == value) {
-          k++;
-          count++;
-          j--;
-        } else if (value - arr[i] < arr[j]) {
-          j--;
-        } else {
-          i++;
-          prevk = k;
-          k = 0;
-          j = jbas;
-          flag = 1;
-        }
-      }
     }
-  }
-  return count;
+    return k;
 }
