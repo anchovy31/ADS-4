@@ -2,7 +2,7 @@
 
 #include <time.h>
 #include <stdlib.h>
-
+#include <iostream>
 #include "gtest/gtest.h"
 
 #define ARRSIZE1 100000
@@ -32,6 +32,7 @@ TEST(lab2, test1) {
     int count1 = countPairs1(arr, ARRSIZE1, 50);
     int count2 = countPairs2(arr, ARRSIZE1, 50);
     int count3 = countPairs3(arr, ARRSIZE1, 50);
+    std::cout << "count1=" << count1 << endl << "count2=" << count2 << endl << "count3=" << count3 << endl;
     EXPECT_TRUE((count1 == count2) && (count1 == count3) && (count2 == count3));
     delete[] arr;
 }
