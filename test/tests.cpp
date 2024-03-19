@@ -32,7 +32,8 @@ TEST(lab2, test1) {
     int count1 = countPairs1(arr, ARRSIZE1, 50);
     int count2 = countPairs2(arr, ARRSIZE1, 50);
     int count3 = countPairs3(arr, ARRSIZE1, 50);
-    std::cout << "count1=" << count1 << std::endl << "count2=" << count2 << std::endl << "count3=" << count3 << std::endl;
+    std::cout << "count1=" << count1 << std::endl;
+    std::cout << "count2=" << count2 << std::endl << "count3=" << count3 << std::endl;
     EXPECT_TRUE((count1 == count2) && (count1 == count3) && (count2 == count3));
     delete[] arr;
 }
@@ -62,6 +63,8 @@ TEST(lab2, test3) {
     t1 = end1 - begin1;
     t2 = end2 - begin2;
     t3 = end3 - begin3;
+    std::cout << "t1=" << t1 << std::endl;
+    std::cout << "t2=" << t2 << std::endl << "t3=" << t3 << std::endl;
     EXPECT_TRUE((t1 > t2) && (t1 > t3) && (t2 > t3));
     delete[] arr;
 }
