@@ -19,7 +19,7 @@ int countPairs1(int* arr, int len, int value) {
 int countPairs2(int* arr, int len, int value) {
   int k = 0, i = 0, jbas = NumOfLastValue(arr, len, value), j;
   j = jbas;
-  while (i <= jbas - 1) {
+  while (arr[i] <= value / 2) {
     if (j > i) {
       if (arr[i] + arr[j] == value) {
         k++;
@@ -43,7 +43,7 @@ int countPairs3(int* arr, int len, int value) {
   j = jbas;
   for (int i = 0; arr[i] <= value / 2; i++) {
     while (i < j) {
-      if (flag = 1 && arr[i] == arr[i - 1] && arr[i] != (value / 2)) {
+      if (flag = 1 && arr[i] == arr[i - 1]) {
         while (arr[i] == arr[i - 1]) {
           count += prevk;
           i++;
